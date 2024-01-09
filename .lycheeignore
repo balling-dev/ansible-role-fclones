@@ -1,0 +1,8 @@
+# Do not check internal github links
+https://github.com/balling-dev/ansible-role-fclones.*
+
+# Do not check services
+https://services.github.com/on-demand/github-cli/open-pull-request-github
+https://img.shields.io/ansible/quality/
+https://img.shields.io/ansible/role/d/
+

@@ -1,0 +1,82 @@
+# Copyright 2024 Kristoffer Winther Balling
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+#
+# Install file for fclones
+
+---
+- name: "install | Install OS dependencies"
+  ansible.builtin.apt:
+    pkg:
+      - "curl"
+      - "jq"
+    update_cache: true
+
+- name: "install | Lowercase version"
+  ansible.builtin.set_fact:
+    fclones_version: "{{ fclones_version | lower }}"
+  when: fclones_version is defined
+
+- block:
+    - name: "install | Get latest version"
+      ansible.builtin.shell:
+        cmd: |
+          set -o pipefail
+          curl -s \
+          https://api.github.com/repos/pkolaczk/fclones/releases/latest | \
+          jq -r .name
+      args:
+        executable: "/bin/bash"
+      register: "cmd"
+      run_once: true
+      changed_when: "'molecule-notest' not in ansible_skip_tags"
+
+    - name: "install | Set version"
+      ansible.builtin.set_fact:
+        fclones_install_version: "{{ cmd.stdout }}"
+  when: fclones_version is undefined or fclones_version == "latest"
+
+- block:
+    - name: "install | Set version"
+      ansible.builtin.set_fact:
+        fclones_install_version: "{{ fclones_version }}"
+  when: fclones_version is defined and fclones_version != "latest"
+
+- name: "install | Print Version"
+  ansible.builtin.debug:
+    msg: "Installing version: {{ fclones_install_version }}"
+
+- name: "install | Set Download URL"
+  ansible.builtin.set_fact:
+    fclones_download_url: "\
+      https://github.com/pkolaczk/fclones/releases/download/\
+      v{{ fclones_install_version }}/\
+      fclones-{{ fclones_install_version }}\
+      -linux-musl-{{ ansible_architecture }}.tar.gz"
+
+- name: "install | Print Download URL"
+  ansible.builtin.debug:
+    msg: "Downloading: {{ fclones_download_url }}"
+
+- name: "install | Download"
+  ansible.builtin.get_url:
+    url: "{{ fclones_download_url }}"
+    dest: "/tmp/fclones.tar.gz"
+    mode: "0644"
+
+- name: "install | Extract"
+  ansible.builtin.unarchive:
+    src: "/tmp/fclones.tar.gz"
+    dest: "/tmp"
+    remote_src: true
+
+- name: "install | Install"
+  ansible.builtin.copy:
+    remote_src: true
+    src: "/tmp/target/x86_64-unknown-linux-musl/release/fclones"
+    dest: "/usr/local/bin/fclones"
+    owner: "root"
+    group: "root"
+    mode: "0755"

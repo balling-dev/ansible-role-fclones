@@ -1,0 +1,28 @@
+# Copyright 2024 Kristoffer Winther Balling
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+#
+# Meta data for fclones
+
+---
+
+galaxy_info:
+  role_name: "fclones"
+  namespace: "balling_dev"
+  description: >-
+    Install and configure fclones - an efficient duplicate file finder written
+    in Rust.
+  author: "Kristoffer Winther Balling"
+  license: "MPL-2.0"
+  company: "none"
+  min_ansible_version: "2.12"
+  platforms:
+    - name: "Ubuntu"
+      versions:
+        - "jammy"
+  galaxy_tags:
+    - "fclones"
+
+dependencies: [ ]

@@ -1,0 +1,46 @@
+# Copyright 2024 Kristoffer Winther Balling
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+#
+# Continuous Deployment
+
+---
+
+name: Continuous Deployment
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  generate-changelog:
+    name: "Generate changelog"
+    runs-on: "ubuntu-22.04"
+    outputs:
+      release_body: "${{ steps.git-cliff.outputs.content }}"
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v4.1.1"
+        with:
+          fetch-depth: 0
+      - name: "Check typos"
+        uses: "crate-ci/typos@v1.17.0"
+      - name: "Generate a changelog"
+        uses: "orhun/git-cliff-action@v2.3.0"
+        id: "git-cliff"
+        with:
+          config: "cliff.toml"
+          args: "-vv --latest --strip header"
+        env:
+          OUTPUT: "CHANGES.md"
+  release:
+    runs-on: "ubuntu-22.04"
+    steps:
+      - name: "galaxy"
+        uses: "robertdebock/galaxy-action@1.2.1"
+        with:
+          galaxy_api_key: "${{ secrets.galaxy_api_key }}"
+          git_branch: "main"
