@@ -22,7 +22,7 @@ and is tested on each push, pull request and release.
   gather_facts: true
 
   roles:
-    - role: "balling_dev.fclones"
+    - role: "balling-dev.fclones"
 ```
 
 ## Role Variables
