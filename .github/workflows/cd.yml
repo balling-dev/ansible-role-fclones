@@ -40,7 +40,6 @@ jobs:
     runs-on: "ubuntu-22.04"
     steps:
       - name: "galaxy"
-        uses: "robertdebock/galaxy-action@1.2.1"
+        uses: "ome/action-ansible-galaxy-publish@main"
         with:
-          galaxy_api_key: "${{ secrets.galaxy_api_key }}"
-          git_branch: "main"
+          galaxy-api-key: "${{ secrets.GALAXY_API_KEY }}"
