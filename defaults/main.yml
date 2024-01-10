@@ -9,4 +9,4 @@
 ---
 
 # Version of fclones to install. Use "latest" to install latest version.
-fclones_version: "latest"
+fclones_version: "0.34.0"
