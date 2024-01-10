@@ -27,3 +27,5 @@ provisioner:
 
 verifier:
   name: "ansible"
+
+role_name_check: 2

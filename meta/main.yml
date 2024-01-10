@@ -9,12 +9,11 @@
 ---
 
 galaxy_info:
-  role_name: "fclones"
-  namespace: "ballingdev"
+  role_name: fclones
   description: >-
     Install and configure fclones - an efficient duplicate file finder written
     in Rust.
-  author: "Kristoffer Winther Balling"
+  author: balling_dev
   license: "MPL-2.0"
   company: "none"
   min_ansible_version: "2.12"
