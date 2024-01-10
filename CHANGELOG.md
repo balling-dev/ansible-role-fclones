@@ -3,6 +3,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.1](https://github.com/balling-dev/ansible-role-fclones/compare/v0.1.0..v0.1.1) - 2024-01-10
+
+### 🐛 Bug Fixes
+
+- Use fixed version of fclones - ([ba2a211](https://github.com/balling-dev/ansible-role-fclones/commit/ba2a2115a0d51956189fb3efe59a2f8ea9acc6c8))
+- Ansible galaxy namespace - ([9bbc3cf](https://github.com/balling-dev/ansible-role-fclones/commit/9bbc3cf6537022ef13fc022d91e63d3aff484469))
+- Ansible galaxy namespace - ([4d6f228](https://github.com/balling-dev/ansible-role-fclones/commit/4d6f228a923ab1ed8f3a31f29c1cc63f2678ea4c))
+
+### ⚙️ Miscellaneous Tasks
+
+- Change ansible galaxy release action - ([8f863d1](https://github.com/balling-dev/ansible-role-fclones/commit/8f863d1396ff8facfbaf92f12334259bdd0b0767))
+
 ## [0.1.0] - 2024-01-09
 
 ### ⛰️  Features
