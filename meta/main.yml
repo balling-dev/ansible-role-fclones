@@ -10,7 +10,7 @@
 
 galaxy_info:
   role_name: "fclones"
-  namespace: "balling_dev"
+  namespace: "balling-dev"
   description: >-
     Install and configure fclones - an efficient duplicate file finder written
     in Rust.

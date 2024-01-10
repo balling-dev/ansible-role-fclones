@@ -5,7 +5,7 @@ efficient duplicate file finder written in Rust.
 
 |GitHub|Downloads|Version|
 |------|---------|-------|
-|[![github](https://github.com/balling-dev/ansible-role-fclones/workflows/Ansible%20Molecule/badge.svg)](https://github.com/balling-dev/ansible-role-fclones/actions)|[![downloads](https://img.shields.io/ansible/role/d/)](https://galaxy.ansible.com/balling_dev/fclones)|[![Version](https://img.shields.io/github/release/balling-dev/ansible-role-fclones.svg)](https://github.com/balling-dev/ansible-role-fclones/releases/)|
+|[![github](https://github.com/balling-dev/ansible-role-fclones/workflows/Ansible%20Molecule/badge.svg)](https://github.com/balling-dev/ansible-role-fclones/actions)|[![downloads](https://img.shields.io/ansible/role/d/)](https://galaxy.ansible.com/balling-dev/fclones)|[![Version](https://img.shields.io/github/release/balling-dev/ansible-role-fclones.svg)](https://github.com/balling-dev/ansible-role-fclones/releases/)|
 
 ## Example Playbook
 
@@ -22,7 +22,7 @@ and is tested on each push, pull request and release.
   gather_facts: true
 
   roles:
-    - role: "balling_dev.fclones"
+    - role: "balling-dev.fclones"
 ```
 
 ## Role Variables
