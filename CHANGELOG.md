@@ -3,6 +3,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.3](https://github.com/balling-dev/ansible-role-fclones/compare/v0.1.2..v0.1.3) - 2024-01-11
+
+### 🐛 Bug Fixes
+
+- Use correct downloads badge - ([f03803a](https://github.com/balling-dev/ansible-role-fclones/commit/f03803ab286b682753cb627b9efaf93afcdae13f))
+- Use correct badges - ([0ea2728](https://github.com/balling-dev/ansible-role-fclones/commit/0ea27285fd0b4cbd7800db6aace20fd764848f93))
+- Allow markdown duplicate headings - ([a922736](https://github.com/balling-dev/ansible-role-fclones/commit/a9227366c6aea9ffdb5c4a422864403f6124ae44))
+
+### 📚 Documentation
+
+- Use correct ansible galaxy role namespace - ([3bf057f](https://github.com/balling-dev/ansible-role-fclones/commit/3bf057f71eeef28669bffff5f52f51b7b3ce561f))
+
+### ⚙️ Miscellaneous Tasks
+
+- Create github release - ([3de856f](https://github.com/balling-dev/ansible-role-fclones/commit/3de856fd49527ec22b086aba0485aedf7ca17b6a))
+- Do not link check github searches - ([83a319b](https://github.com/balling-dev/ansible-role-fclones/commit/83a319b56443b657182f2afc09308c181c582b9d))
+
 ## [0.1.2](https://github.com/balling-dev/ansible-role-fclones/compare/v0.1.1..v0.1.2) - 2024-01-10
 
 ### 🐛 Bug Fixes
