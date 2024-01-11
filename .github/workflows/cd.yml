@@ -32,14 +32,29 @@ jobs:
         uses: "orhun/git-cliff-action@v2.3.0"
         id: "git-cliff"
         with:
-          config: "cliff.toml"
-          args: "-vv --latest --strip header"
+          config: "cliff_tag.toml"
+          args: "-vv --latest --strip all"
         env:
           OUTPUT: "CHANGES.md"
   release:
     runs-on: "ubuntu-22.04"
+    needs: generate-changelog
     steps:
       - name: "galaxy"
         uses: "ome/action-ansible-galaxy-publish@main"
         with:
           galaxy-api-key: "${{ secrets.GALAXY_API_KEY }}"
+      - name: "Checkout"
+        uses: "actions/checkout@v4.1.1"
+      - name: "Get the release version from the tag"
+        if: "env.RELEASE_VERSION == ''"
+        run: echo "RELEASE_VERSION=${{ github.ref_name }}" >> $GITHUB_ENV
+      - name: "Show the version"
+        run: |
+          echo "version is: ${RELEASE_VERSION}"
+      - name: "Create GitHub release"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        run: gh release create "${RELEASE_VERSION}" --verify-tag --title "${RELEASE_VERSION}" --notes "${{ needs.generate-changelog.outputs.release_body }}"
+    outputs:
+      version: "${{ env.RELEASE_VERSION }}"
