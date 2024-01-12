@@ -41,7 +41,7 @@ jobs:
     needs: generate-changelog
     steps:
       - name: "Create Ansible Galaxy release"
-        run: ansible-galaxy role import --api-key "${{ inputs.galaxy-api-key }}" ${GITHUB_REPOSITORY%/*} ${GITHUB_REPOSITORY#*/}
+        run: ansible-galaxy role import --api-key "${{ secrets.galaxy-api-key }}" ${GITHUB_REPOSITORY%/*} ${GITHUB_REPOSITORY#*/}
       - name: "Checkout"
         uses: "actions/checkout@v4.1.1"
       - name: "Get the release version from the tag"
