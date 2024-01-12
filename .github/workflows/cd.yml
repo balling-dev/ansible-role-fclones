@@ -40,7 +40,6 @@ jobs:
     runs-on: "ubuntu-22.04"
     needs: generate-changelog
     steps:
-      - name: "galaxy"
       - name: "Create Ansible Galaxy release"
         run: ansible-galaxy role import --api-key "${{ inputs.galaxy-api-key }}" ${GITHUB_REPOSITORY%/*} ${GITHUB_REPOSITORY#*/}
       - name: "Checkout"
