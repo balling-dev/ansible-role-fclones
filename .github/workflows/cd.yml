@@ -41,7 +41,7 @@ jobs:
     needs: generate-changelog
     steps:
       - name: "galaxy"
-        uses: "ome/action-ansible-galaxy-publish@main"
+        uses: "ome/action-ansible-galaxy-publish@8e5e7e5ab8b370d6c329ec480221332ada57f0ab"
         with:
           galaxy-api-key: "${{ secrets.GALAXY_API_KEY }}"
       - name: "Checkout"
