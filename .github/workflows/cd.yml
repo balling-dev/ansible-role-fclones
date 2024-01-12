@@ -5,7 +5,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 #
 # Continuous Deployment
-
+#
+# shellcheck disable=SC2086
 ---
 
 name: Continuous Deployment
@@ -41,20 +42,27 @@ jobs:
     needs: generate-changelog
     steps:
       - name: "Create Ansible Galaxy release"
-        run: ansible-galaxy role import --api-key "${GALAXY_API_KEY}" ${GITHUB_REPOSITORY%/*} ${GITHUB_REPOSITORY#*/}
+        run: |
+          ansible-galaxy role import \
+            --api-key "${GALAXY_API_KEY}" \
+            "${GITHUB_REPOSITORY%/*}" "${GITHUB_REPOSITORY#*/}"
         env:
           GALAXY_API_KEY: "${{ secrets.galaxy_api_key }}"
       - name: "Checkout"
         uses: "actions/checkout@v4.1.1"
       - name: "Get the release version from the tag"
         if: "env.RELEASE_VERSION == ''"
-        run: echo "RELEASE_VERSION=${{ github.ref_name }}" >> $GITHUB_ENV
+        run: echo "RELEASE_VERSION=${{ github.ref_name }}" >> "${GITHUB_ENV}"
       - name: "Show the version"
         run: |
           echo "version is: ${RELEASE_VERSION}"
       - name: "Create GitHub release"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        run: gh release create "${RELEASE_VERSION}" --verify-tag --title "${RELEASE_VERSION}" --notes "${{ needs.generate-changelog.outputs.release_body }}"
+        run: |
+          gh release create "${RELEASE_VERSION}" \
+            --verify-tag \
+            --title "${RELEASE_VERSION}" \
+            --notes "${{ needs.generate-changelog.outputs.release_body }}"
     outputs:
       version: "${{ env.RELEASE_VERSION }}"

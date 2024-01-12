@@ -12,4 +12,3 @@ roles:
   - name: "robertdebock.bootstrap"
 collections:
   - name: "community.general"
- 

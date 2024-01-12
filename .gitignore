@@ -1,6 +1,7 @@
-.molecule
-*.log
-*.swp
-.tox
 .cache
 .DS_Store
+.lycheecache
+.molecule
+.tox
+*.log
+*.swp
