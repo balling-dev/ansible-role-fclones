@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 
 ### ⚙️ Miscellaneous Tasks
 
+- Fix ansible galaxy api key again - ([68dfcfd](https://github.com/balling-dev/ansible-role-fclones/commit/68dfcfd9aa8926f3718d0362dc4966823d4ba1e4))
 - Fix ansible galaxy api key - ([4017823](https://github.com/balling-dev/ansible-role-fclones/commit/40178238fc4b75bab4eb3c56a3c25629761e3dcc))
 - Fix deployment workflow - ([0b07559](https://github.com/balling-dev/ansible-role-fclones/commit/0b07559562573d2efecce281d303bd86d13b379d))
 - Remove galaxy release action dependency - ([fe630cc](https://github.com/balling-dev/ansible-role-fclones/commit/fe630cc5d5686280fd05959a6524a423c6fb8abd))
