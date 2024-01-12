@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 
 ### ⚙️ Miscellaneous Tasks
 
+- Fix deployment workflow - ([0b07559](https://github.com/balling-dev/ansible-role-fclones/commit/0b07559562573d2efecce281d303bd86d13b379d))
 - Remove galaxy release action dependency - ([fe630cc](https://github.com/balling-dev/ansible-role-fclones/commit/fe630cc5d5686280fd05959a6524a423c6fb8abd))
 - Fix version of galaxy release action - ([c35ee18](https://github.com/balling-dev/ansible-role-fclones/commit/c35ee18d65ab2f57e7c9ab6678be7718c07ac7bb))
 - Create github release - ([3de856f](https://github.com/balling-dev/ansible-role-fclones/commit/3de856fd49527ec22b086aba0485aedf7ca17b6a))
