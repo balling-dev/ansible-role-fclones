@@ -34,14 +34,7 @@ git add -A &&
 		commit -m "chore(release): prepare for ${TAG}"
 git show
 # generate a changelog for the tag message
-export GIT_CLIFF_TEMPLATE="\
-	{% for group, commits in commits | group_by(attribute=\"group\") %}
-	{{ group | upper_first }}\
-	{% for commit in commits %}
-		- {% if commit.breaking %}(breaking) {% endif %}{{ commit.message | upper_first }} ({{ commit.id | truncate(length=7, end=\"\") }})\
-	{% endfor %}
-	{% endfor %}"
-changelog=$(git-cliff --config cliff_tag.toml --unreleased --strip all)
+changelog=$(git-cliff --config cliff.toml --unreleased --strip all)
 echo "Please sign tag: Release ${TAG}"
 # create a signed tag
 	git -c user.name="${GIT_USER_NAME}" \

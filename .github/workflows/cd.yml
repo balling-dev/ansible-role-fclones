@@ -33,7 +33,7 @@ jobs:
         uses: "orhun/git-cliff-action@v2.3.0"
         id: "git-cliff"
         with:
-          config: "cliff_tag.toml"
+          config: "cliff.toml"
           args: "-vv --latest --strip all"
         env:
           OUTPUT: "CHANGES.md"
