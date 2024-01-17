@@ -3,6 +3,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.5](https://github.com/balling-dev/ansible-role-fclones/compare/v0.1.4..v0.1.5) - 2024-01-17
+
+### 🐛 Bug Fixes
+
+- Use changelog format for tag messages - ([e03bf42](https://github.com/balling-dev/ansible-role-fclones/commit/e03bf427b6b395c9d64b7b61021d7dd115cad48a))
+
 ## [0.1.4](https://github.com/balling-dev/ansible-role-fclones/compare/v0.1.3..v0.1.4) - 2024-01-12
 
 ### ⛰️  Features
